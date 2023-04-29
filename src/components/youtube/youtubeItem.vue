@@ -5,7 +5,7 @@
                 <img :src="video.thumbnailChannel" alt="" class="w-full rounded-full border-[2px] border-white border-solid">
             </div>
             <p class="text-base font-bo">{{ video.channelTitle }}</p>
-            <div v-if="video.publishedAt" class="text-xs ml-auto">
+            <div v-if="video && video.publishedAt" class="text-xs ml-auto">
                 <!-- <timeago :datetime="video.publishedAt"/> -->
                 {{ removeTextTime(video.publishedAt) }}
                 <!-- {{ removeTextTime(formatDistanceToNow(new Date(video.publishedAt), {addSuffix: true})) }} -->
@@ -23,7 +23,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, reactive, defineProps, onMounted, onBeforeMount, watch } from "vue";
 // import { formatDistanceToNow } from 'date-fns'
 import { formatDistanceToNow } from "date-fns"
