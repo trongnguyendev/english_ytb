@@ -253,38 +253,38 @@ const CheckForCommand = (result) => {
 }
 
 const processSpeech = () => {
-  sr.continuous = true
-	sr.interimResults = true
+    // sr.continuous = true
+	// sr.interimResults = true
 
-	sr.onstart = () => {
-		console.log('SR Started')
-		isRecording.value = true
-	}
+	// sr.onstart = () => {
+	// 	console.log('SR Started')
+	// 	isRecording.value = true
+	// }
 
-	sr.onend = () => {
-		console.log('SR Stopped')
-		isRecording.value = false
-	}
+	// sr.onend = () => {
+	// 	console.log('SR Stopped')
+	// 	isRecording.value = false
+	// }
 
-	sr.onresult = (evt) => {
-        console.log("----");
-        console.log(evt);
-        console.log("----");
-		for (let i = 0; i < evt.results.length; i++) {
-			const result = evt.results[i]
+	// sr.onresult = (evt) => {
+    //     console.log("----");
+    //     console.log(evt);
+    //     console.log("----");
+	// 	for (let i = 0; i < evt.results.length; i++) {
+	// 		const result = evt.results[i]
 
-			if (result.isFinal) CheckForCommand(result)
-		}
+	// 		if (result.isFinal) CheckForCommand(result)
+	// 	}
 
-		const t = Array.from(evt.results)
-			.map(result => result[0])
-			.map(result => result.transcript)
-			.join('')
+	// 	const t = Array.from(evt.results)
+	// 		.map(result => result[0])
+	// 		.map(result => result.transcript)
+	// 		.join('')
 		
-		transcript.value = t
-        storeRecord.setRecordYT(transcript.value);
-        console.log(transcript.value);
-	}
+	// 	transcript.value = t
+    //     storeRecord.setRecordYT(transcript.value);
+    //     console.log(transcript.value);
+	// }
 }
 
 const ToggleMic = () => {
