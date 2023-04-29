@@ -17,7 +17,7 @@ import timeago from 'vue-timeago3'
 import defaultLayout from './layouts/defaultLayout.vue'
 import loginLayout from './layouts/loginLayout.vue'
 
-import './assets/main.css'
+import './assets/style.css'
 
 // router.push
 // import { useAuthStore } from "@/stores/auth";
