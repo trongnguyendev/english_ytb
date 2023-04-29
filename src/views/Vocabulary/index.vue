@@ -1,0 +1,3 @@
+<template>
+    Vocabulary
+</template>
