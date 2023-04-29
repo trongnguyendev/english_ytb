@@ -42,23 +42,24 @@ let props = defineProps({
 });
 
 const setInforvideo = () =>  {
-    video.title = props.video.snippet.title;
-    video.description = props.video.snippet.description;
+    if(props.video && props.video.snippet) {
+        video.title = props.video.snippet.title;
+        video.description = props.video.snippet.description;
 
-    console.log(props.video.thumbnailChannel, '11111');
-    if(props.video.snippet.thumbnails.high) {
-        video.thumbnails = props.video.snippet.thumbnails.high.url;
+        if(props.video.snippet.thumbnails.high) {
+            video.thumbnails = props.video.snippet.thumbnails.high.url;
+        }
+        else if(props.video.snippet.thumbnails.medium) {
+            video.thumbnails = props.video.snippet.thumbnails.medium.url;
+        }
+        else if(props.video.snippet.thumbnails.default) {
+            video.thumbnails = props.video.snippet.thumbnails.default.url;
+        }
+
+        video.channelTitle = props.video.snippet.channelTitle;
+        video.thumbnailChannel = props.video.thumbnailChannel;
+        video.publishedAt = props.video.publishedAt;
     }
-    else if(props.video.snippet.thumbnails.medium) {
-        video.thumbnails = props.video.snippet.thumbnails.medium.url;
-    }
-    else if(props.video.snippet.thumbnails.default) {
-        video.thumbnails = props.video.snippet.thumbnails.default.url;
-    }
-    
-    video.channelTitle = props.video.snippet.channelTitle;
-    video.thumbnailChannel = props.video.thumbnailChannel;
-    video.publishedAt = props.video.publishedAt;
 }
 
 const removeTextTime = (date:any) => {
